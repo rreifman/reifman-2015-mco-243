@@ -22,7 +22,6 @@ public class MicroprocessorSimulation {
 				int addressDec = Integer.parseInt(addressHex, 16);
 				accA = array[addressDec];
 				counter = counter + 3;
-				System.out.println(addressHex + " " + addressDec + " " + accA);
 				break;
 			}
 			case '1': {
