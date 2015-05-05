@@ -25,15 +25,13 @@ public class Main {
 		List<FakeProcess> processes = new ArrayList<FakeProcess>();
 		for(int i = 0; i<100; i++){
 			int pri = random.nextInt((10)+1) + 1;
-			int time = random.nextInt(45);
+			int time = random.nextInt(100);
 			processes.add(new FakeProcess(pri, time));
 		}
 		return processes;
 	}
 	
-	public void runScheduler(Scheduler sched){
-		sched.run();
-	}
+
 
 	public Scheduler getFifo() {
 		return fifo;
@@ -58,9 +56,10 @@ public class Main {
 		System.out.println("Exection Time: " + (end - start));
 		
 		System.out.println("\nPriority Scheduler");
-		System.out.println("Time before: " +  System.currentTimeMillis());
-		main.runScheduler(main.getPriority());
-		System.out.println("Time after: " + System.currentTimeMillis());
+		start = System.currentTimeMillis();
+		main.getPriority().run();;
+		end = System.currentTimeMillis();
+		System.out.println("Exection Time: " + (end - start));
 		
 		System.out.println("\nShortest Process Scheduler");
 		start = System.currentTimeMillis();
